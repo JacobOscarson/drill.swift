@@ -42,10 +42,13 @@ class Exercises : Sequence, IteratorProtocol {
     self.shouldPreferSub = preferSub
   }
 
+  func randint(start: Int, to end: Int) -> Int {
+    return Int(arc4random_uniform(UInt32(end - start + 1))) + start
+  }
+
   func next() -> (String,String,String,Int)? {
-    func val() -> Int {
-      return Int(arc4random_uniform(UInt32(15))) + 1
-    }
+    func val() -> Int { return self.randint(start: 1, to: 15) }
+    func coin() -> Bool { return Bool(self.randint(start: 0, to: 1) == 1) }
 
     if remaining == 0 {
       return nil
@@ -53,7 +56,31 @@ class Exercises : Sequence, IteratorProtocol {
       defer { remaining -= 1 }
 
       var (a,b) = (val(), val())
-      return (String(a), String(b), "+", 10)
+      var negs = [true, true]
+      if self.shouldPreferSub {
+        let subtract = coin()
+        negs = [subtract, subtract]
+      } else {
+        negs = [coin(), coin()]
+      }
+
+      var sign: String, answer: Int
+      if a - b > 0 && negs[0] {
+        sign = "-"
+        answer = a - b
+      } else if b - a > 0 && negs[1] {
+        sign = "-"
+        swap(&a, &b)
+        answer = a - b
+      } else {
+        sign = "+"
+        if coin() {
+          swap(&a, &b)
+        }
+        answer = a + b
+      }
+
+      return (String(a), String(b), sign, answer)
     }
   }
 }
