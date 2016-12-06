@@ -43,11 +43,17 @@ class Exercises : Sequence, IteratorProtocol {
   }
 
   func next() -> (String,String,String,Int)? {
+    func val() -> Int {
+      return Int(arc4random_uniform(UInt32(15))) + 1
+    }
+
     if remaining == 0 {
       return nil
     } else {
       defer { remaining -= 1 }
-      return ("a", "b", "+", 10)
+
+      var (a,b) = (val(), val())
+      return (String(a), String(b), "+", 10)
     }
   }
 }
