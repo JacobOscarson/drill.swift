@@ -32,7 +32,7 @@
 import Foundation
 
 class Exercises : Sequence, IteratorProtocol {
-  // Would could have conceptually benefited from generators
+  // Could have conceptually benefited from generators
 
   var remaining: Int = 10
   var shouldPreferSub: Bool = false
