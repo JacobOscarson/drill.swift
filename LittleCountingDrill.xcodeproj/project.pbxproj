@@ -13,6 +13,7 @@
 		16435B3C1DF7110500C3E504 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 16435B3B1DF7110500C3E504 /* Assets.xcassets */; };
 		16435B3F1DF7110500C3E504 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 16435B3D1DF7110500C3E504 /* LaunchScreen.storyboard */; };
 		16435B471DF7189700C3E504 /* Exercises.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16435B461DF7189700C3E504 /* Exercises.swift */; };
+		16435B491DF8286D00C3E504 /* QuestionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16435B481DF8286D00C3E504 /* QuestionController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		16435B3E1DF7110500C3E504 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		16435B401DF7110500C3E504 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		16435B461DF7189700C3E504 /* Exercises.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Exercises.swift; sourceTree = "<group>"; };
+		16435B481DF8286D00C3E504 /* QuestionController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuestionController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,13 +58,14 @@
 		16435B331DF7110500C3E504 /* LittleCountingDrill */ = {
 			isa = PBXGroup;
 			children = (
+				16435B461DF7189700C3E504 /* Exercises.swift */,
 				16435B341DF7110500C3E504 /* AppDelegate.swift */,
 				16435B361DF7110500C3E504 /* ViewController.swift */,
+				16435B481DF8286D00C3E504 /* QuestionController.swift */,
 				16435B381DF7110500C3E504 /* Main.storyboard */,
 				16435B3B1DF7110500C3E504 /* Assets.xcassets */,
 				16435B3D1DF7110500C3E504 /* LaunchScreen.storyboard */,
 				16435B401DF7110500C3E504 /* Info.plist */,
-				16435B461DF7189700C3E504 /* Exercises.swift */,
 			);
 			path = LittleCountingDrill;
 			sourceTree = "<group>";
@@ -142,6 +145,7 @@
 				16435B371DF7110500C3E504 /* ViewController.swift in Sources */,
 				16435B471DF7189700C3E504 /* Exercises.swift in Sources */,
 				16435B351DF7110500C3E504 /* AppDelegate.swift in Sources */,
+				16435B491DF8286D00C3E504 /* QuestionController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
