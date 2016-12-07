@@ -55,7 +55,6 @@ class ViewController: UIViewController {
 
   @IBAction func amountChanged(_ slider: UISlider) {
     let step = self.getAmount()
-    NSLog("value %f step %f", slider.value, step)
     self.amountLabel.text = String(Int(step))
     slider.value = step * AMOUNT_STEP
   }
