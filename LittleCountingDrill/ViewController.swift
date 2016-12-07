@@ -33,16 +33,34 @@ import UIKit
 
 class ViewController: UIViewController {
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
-    }
+  let AMOUNT_STEP : Float = 10.0
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
+  @IBOutlet weak var hardSwitch: UISwitch!
+  @IBOutlet weak var amountLabel: UILabel!
+  @IBOutlet weak var amountWidget: UISlider!
 
+  override func viewDidLoad() {
+    super.viewDidLoad()
+    // Do any additional setup after loading the view, typically from a nib.
+  }
 
+  override func didReceiveMemoryWarning() {
+    super.didReceiveMemoryWarning()
+    // Dispose of any resources that can be recreated.
+  }
+
+  func getAmount() -> Float {
+    return roundf(amountWidget.value / AMOUNT_STEP)
+  }
+
+  @IBAction func amountChanged(_ slider: UISlider) {
+    let step = self.getAmount()
+    NSLog("value %f step %f", slider.value, step)
+    self.amountLabel.text = String(Int(step))
+    slider.value = step * AMOUNT_STEP
+  }
+
+  @IBAction func onStart(_ sender: Any) {
+    NSLog("TBD: Start %d exercises", Int(self.getAmount()))
+  }
 }
-
