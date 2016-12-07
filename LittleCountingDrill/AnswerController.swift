@@ -36,11 +36,8 @@ class AnswerController: UIViewController {
 
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
     if segue.identifier == "finishedRoundSegue" {
-      let fCtl = (segue.destination as! FinishedRoundController)
-      // (fCtl.correct, fCtl.incorrect, fCtl.total,
-       // fCtl.rerun) = (self.correct, self.incorrect, self.exercises!.amount,
-      // self.exercises)
-      fCtl.exercises = self.exercises
+      (segue.destination
+         as! FinishedRoundController).exercises = self.exercises
     }
   }
 
