@@ -41,11 +41,6 @@ class QuestionController: UIViewController {
   @IBOutlet weak var correctsLabel: UILabel!
   @IBOutlet weak var incorrectsLabel: UILabel!
 
-  override func prepare(for segue: UIStoryboardSegue,
-                        sender: Any?) {
-    NSLog("In QuestionController prepare()..")
-  }
-
   override func viewDidLoad() {
     super.viewDidLoad()
     // Do any additional setup after loading the view, typically from a nib.
