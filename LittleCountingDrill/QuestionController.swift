@@ -34,6 +34,11 @@ import UIKit
 class QuestionController: UIViewController {
   var exercises : Exercises?
 
+  @IBOutlet weak var aLabel: UILabel!
+  @IBOutlet weak var bLabel: UILabel!
+  @IBOutlet weak var signLabel: UILabel!
+  @IBOutlet weak var answerField: UITextField!
+
   override func prepare(for segue: UIStoryboardSegue,
                         sender: Any?) {
     NSLog("In QuestionController prepare()..")
