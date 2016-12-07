@@ -49,11 +49,13 @@ class Exercises : Sequence, IteratorProtocol {
   }
 
   func incCorrect() {
-    self.correct += 1
+    correct += 1
+    remaining -= 1
   }
 
   func incIncorrect() {
-    self.incorrect += 1
+    incorrect += 1
+    remaining -= 1
   }
 
   func randint(start: Int, to end: Int) -> Int {
@@ -67,8 +69,6 @@ class Exercises : Sequence, IteratorProtocol {
     if remaining == 0 {
       return nil
     } else {
-      defer { remaining -= 1 }
-
       var (a,b) = (val(), val())
       var difficulty = [true, true]
       if self.harder {
