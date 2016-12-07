@@ -37,6 +37,7 @@ class Exercises : Sequence, IteratorProtocol {
   var amount: Int
   var remaining: Int = 10
   var harder: Bool = false
+  var correct = 0, incorrect = 0
 
   init(_ amount:Int, preferHard: Bool) {
     (self.amount, self.remaining) = (amount, amount)
@@ -45,6 +46,14 @@ class Exercises : Sequence, IteratorProtocol {
 
   func clone() -> Exercises {
     return Exercises(self.amount, preferHard: self.harder)
+  }
+
+  func incCorrect() {
+    self.correct += 1
+  }
+
+  func incIncorrect() {
+    self.incorrect += 1
   }
 
   func randint(start: Int, to end: Int) -> Int {
