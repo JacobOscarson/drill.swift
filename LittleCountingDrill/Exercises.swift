@@ -35,11 +35,11 @@ class Exercises : Sequence, IteratorProtocol {
   // Could have conceptually benefited from generators
 
   var remaining: Int = 10
-  var shouldPreferSub: Bool = false
+  var harder: Bool = false
 
-  init(_ amount:Int, preferSub: Bool) {
+  init(_ amount:Int, preferHard: Bool) {
     self.remaining = amount
-    self.shouldPreferSub = preferSub
+    self.harder = preferHard
   }
 
   func randint(start: Int, to end: Int) -> Int {
@@ -56,19 +56,19 @@ class Exercises : Sequence, IteratorProtocol {
       defer { remaining -= 1 }
 
       var (a,b) = (val(), val())
-      var negs = [true, true]
-      if self.shouldPreferSub {
+      var difficulty = [true, true]
+      if self.harder {
         let subtract = coin()
-        negs = [subtract, subtract]
+        difficulty = [subtract, subtract]
       } else {
-        negs = [coin(), coin()]
+        difficulty = [coin(), coin()]
       }
 
       var sign: String, answer: Int
-      if a - b > 0 && negs[0] {
+      if a - b > 0 && difficulty[0] {
         sign = "-"
         answer = a - b
-      } else if b - a > 0 && negs[1] {
+      } else if b - a > 0 && difficulty[1] {
         sign = "-"
         swap(&a, &b)
         answer = a - b
