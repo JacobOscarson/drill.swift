@@ -34,7 +34,6 @@ import UIKit
 class QuestionController: UIViewController {
   var exercises : Exercises?
   var answer = -1
-  var correct = 0, incorrect = 0
 
   @IBOutlet weak var aLabel: UILabel!
   @IBOutlet weak var bLabel: UILabel!
@@ -56,8 +55,6 @@ class QuestionController: UIViewController {
     if self.exercises!.remaining > 0 {
       (self.aLabel.text!, self.bLabel.text!, self.signLabel.text!,
        self.answer) = self.exercises!.next()!
-    } else {
-      NSLog("TBD: FINISH")
     }
     self.renderState()
     self.answerField.becomeFirstResponder()
@@ -65,8 +62,8 @@ class QuestionController: UIViewController {
 
   func renderState() {
     (self.correctsLabel.text, self.incorrectsLabel.text,
-     self.answerField.text) = ("\(self.correct) rätt",
-                               "\(self.incorrect) fel",
+     self.answerField.text) = ("\(self.exercises!.correct) rätt",
+                               "\(self.exercises!.incorrect) fel",
                                "")
   }
 
@@ -87,23 +84,27 @@ class QuestionController: UIViewController {
   }
 
   func wasCorrect() {
-    self.correct += 1
+    self.exercises?.incCorrect()
     self.performSegue(withIdentifier: "correctSegue", sender: nil)
   }
 
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-    if(segue.identifier == "incorrectSegue") {
+    if segue.identifier == "incorrectSegue" {
       let wrongCtrl = (segue.destination as! IncorrectController)
       let (a, sign, b) = (self.aLabel.text!,
                           self.signLabel.text!,
                           self.bLabel.text!)
       wrongCtrl.expression = "\(a) \(sign) \(b) = "
       wrongCtrl.answer = String(self.answer)
+      wrongCtrl.exercises = self.exercises
+    } else if segue.identifier == "correctSegue"  {
+      let rightCtl = (segue.destination as! CorrectController)
+      rightCtl.exercises = self.exercises
     }
   }
 
   func wasIncorrect() {
-    self.incorrect += 1
+    self.exercises?.incIncorrect()
     self.performSegue(withIdentifier: "incorrectSegue", sender: nil)
   }
 

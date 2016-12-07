@@ -1,5 +1,5 @@
 //
-//  AnswerController.swift
+//  FinishedRoundController.swift
 //  LittleCountingDrill
 //
 //  Created by Jacob Oscarson on 2016-12-07.
@@ -29,31 +29,32 @@
 // SOFTWARE.
 //
 
+import Foundation
 import UIKit
 
-class AnswerController: UIViewController {
-  var exercises : Exercises?
+class FinishedRoundController: UIViewController {
+  var correct = 0, incorrect = 0, total = 0
+  var exercises: Exercises?
+
+  @IBOutlet weak var correctLabel: UILabel!
+  @IBOutlet weak var incorrectLabel: UILabel!
+  @IBOutlet weak var totalLabel: UILabel!
+
+  @IBAction func doRerun(_ sender: Any) {
+    self.performSegue(withIdentifier: "rerunSegue",
+                      sender:nil)
+  }
 
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-    if segue.identifier == "finishedRoundSegue" {
-      let fCtl = (segue.destination as! FinishedRoundController)
-      // (fCtl.correct, fCtl.incorrect, fCtl.total,
-       // fCtl.rerun) = (self.correct, self.incorrect, self.exercises!.amount,
-      // self.exercises)
-      fCtl.exercises = self.exercises
+    if(segue.identifier == "rerunSegue") {
+      let qController = (segue.destination as! QuestionController)
+      qController.exercises = self.exercises!.clone()
     }
   }
 
-  func queueContinuation(_ wait: Int) {
-    let remaining = self.exercises!.remaining
-    DispatchQueue.main.asyncAfter(
-      deadline: .now() + .seconds(wait),
-      execute: {
-        if remaining > 0 {
-          self.navigationController?.popViewController(animated: true)
-        } else {
-          self.performSegue(withIdentifier: "finishedRoundSegue", sender:nil)
-        }
-      })
+  override func viewWillAppear(_ animated: Bool) {
+    self.correctLabel.text = "\(self.exercises!.correct) rätt"
+    self.incorrectLabel.text = "\(self.exercises!.incorrect) fel"
+    self.totalLabel.text = String(self.exercises!.amount)
   }
 }
