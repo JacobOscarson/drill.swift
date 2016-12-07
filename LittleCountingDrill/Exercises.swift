@@ -34,12 +34,17 @@ import Foundation
 class Exercises : Sequence, IteratorProtocol {
   // Could have conceptually benefited from generators
 
+  var amount: Int
   var remaining: Int = 10
   var harder: Bool = false
 
   init(_ amount:Int, preferHard: Bool) {
-    self.remaining = amount
+    (self.amount, self.remaining) = (amount, amount)
     self.harder = preferHard
+  }
+
+  func clone() -> Exercises {
+    return Exercises(self.amount, preferHard: self.harder)
   }
 
   func randint(start: Int, to end: Int) -> Int {
