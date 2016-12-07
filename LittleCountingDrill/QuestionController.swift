@@ -38,6 +38,8 @@ class QuestionController: UIViewController {
   @IBOutlet weak var bLabel: UILabel!
   @IBOutlet weak var signLabel: UILabel!
   @IBOutlet weak var answerField: UITextField!
+  @IBOutlet weak var correctsLabel: UILabel!
+  @IBOutlet weak var incorrectsLabel: UILabel!
 
   override func prepare(for segue: UIStoryboardSegue,
                         sender: Any?) {
