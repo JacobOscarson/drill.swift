@@ -60,7 +60,18 @@ class ViewController: UIViewController {
     slider.value = step * AMOUNT_STEP
   }
 
+  override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    if(segue.identifier == "questionSegue") {
+      let qController = (segue.destination as! QuestionController)
+      qController.exercises = (sender as! Exercises)
+      //NSLog("%@", qcontroller)
+    }
+  }
+
   @IBAction func onStart(_ sender: Any) {
-    NSLog("TBD: Start %d exercises", Int(self.getAmount()))
+    let exercises = Exercises(Int(self.getAmount()),
+                              preferHard:self.hardSwitch.isOn)
+    self.performSegue(withIdentifier: "questionSegue",
+                       sender:exercises)
   }
 }

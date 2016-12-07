@@ -32,9 +32,20 @@
 import UIKit
 
 class QuestionController: UIViewController {
+  var exercises : Exercises?
+
+  override func prepare(for segue: UIStoryboardSegue,
+                        sender: Any?) {
+    NSLog("In QuestionController prepare()..")
+  }
+
   override func viewDidLoad() {
     super.viewDidLoad()
     // Do any additional setup after loading the view, typically from a nib.
+  }
+
+  override func viewDidAppear(_ animated: Bool) {
+    print(self.exercises!)
   }
 
   override func didReceiveMemoryWarning() {
