@@ -30,3 +30,5 @@ I'd suggest you choose "iPhone SE" as your target device. I'll see if
 I can be bothered in the future to tweak the Auto Layout settings a
 little bit more and maybe just maybe I'll give it icons and release it
 on the App Store.
+
+Oviously, the same goes for i18n.
