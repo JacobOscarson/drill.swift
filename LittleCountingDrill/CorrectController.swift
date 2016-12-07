@@ -31,11 +31,8 @@
 
 import UIKit
 
-class CorrectController: UIViewController {
+class CorrectController: AnswerController {
   override func viewDidAppear(_ animated: Bool) {
-    DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(2), execute: {
-        self.navigationController?.popViewController(animated: true)
-        // Put your code which should be executed with a delay here
-    })
+    self.queueContinuation(2)
   }
 }

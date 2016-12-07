@@ -1,5 +1,5 @@
 //
-//  IncorrectController.swift
+//  AnswerController.swift
 //  LittleCountingDrill
 //
 //  Created by Jacob Oscarson on 2016-12-07.
@@ -31,22 +31,12 @@
 
 import UIKit
 
-class IncorrectController: AnswerController {
-  var expression: String?, answer: String?
+class AnswerController: UIViewController {
+  var exercises : Exercises?
 
-  @IBOutlet weak var expressionLabel: UILabel!
-  @IBOutlet weak var answerLabel: UILabel!
-
-  override func viewWillAppear(_ animated: Bool) {
-    self.expressionLabel.text = self.expression
-    self.answerLabel.text = self.answer
-  }
-
-  override func viewDidAppear(_ animated: Bool) {
-    self.queueContinuation(4)
-    // DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(4), execute: {
-        // self.navigationController?.popViewController(animated: true)
-        // Put your code which should be executed with a delay here
-    // })
+  func queueContinuation(_ wait: Int) {
+    DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(wait), execute: {
+        self.navigationController?.popViewController(animated: true)
+    })
   }
 }
