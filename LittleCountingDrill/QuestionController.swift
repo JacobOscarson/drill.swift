@@ -88,7 +88,7 @@ class QuestionController: UIViewController {
 
   func wasCorrect() {
     self.correct += 1
-    NSLog("TBD: ACT ON CORRECT")
+    self.performSegue(withIdentifier: "correctSegue", sender: nil)
   }
 
   func wasIncorrect() {
