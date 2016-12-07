@@ -7,6 +7,16 @@ I'm using to train my children in smaller numbers arithmetics (
 It also serves the dual purpose as a work sample of my Swift coding
 skills ;-)
 
+Since it's targeted at my children (age 9 now), it's UI is in
+Swedish:
+
+   - _Antal övningar_ = number of exercises
+   - _Mer subtraktion_ = higher amount of subtraction
+   - _rätt_ = correct
+   - _fel_ = incorrect
+   - _Träna en gång till_ = same exercises again
+   - _Träna på ett annat sätt_ = return to initial config screen
+
 ## Installation
 
 It has no dependencies so running should be easy as long as you are
