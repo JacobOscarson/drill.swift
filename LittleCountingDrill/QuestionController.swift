@@ -70,6 +70,32 @@ class QuestionController: UIViewController {
                                "")
   }
 
+  @IBAction func gotAnswer(_ sender: Any) {
+    if self.answerField.text != "" {
+      self.takeAnswer(Int(self.answerField!.text!)!)
+    }
+  }
+
+  func takeAnswer(_ answer: Int) {
+    if answer == self.answer {
+      self.wasCorrect()
+    } else {
+      self.wasIncorrect()
+    }
+    self.renderState()
+    self.advance()
+  }
+
+  func wasCorrect() {
+    self.correct += 1
+    NSLog("TBD: ACT ON CORRECT")
+  }
+
+  func wasIncorrect() {
+    self.incorrect += 1
+    NSLog("TBD: ACT ON INCORRECT")
+  }
+
   override func didReceiveMemoryWarning() {
     super.didReceiveMemoryWarning()
     // Dispose of any resources that can be recreated.
