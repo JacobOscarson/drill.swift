@@ -33,6 +33,8 @@ import UIKit
 
 class QuestionController: UIViewController {
   var exercises : Exercises?
+  var answer = -1
+  var correct = 0, incorrect = 0
 
   @IBOutlet weak var aLabel: UILabel!
   @IBOutlet weak var bLabel: UILabel!
@@ -46,8 +48,26 @@ class QuestionController: UIViewController {
     // Do any additional setup after loading the view, typically from a nib.
   }
 
-  override func viewDidAppear(_ animated: Bool) {
-    print(self.exercises!)
+  override func viewWillAppear(_ animated: Bool) {
+    self.advance()
+  }
+
+  func advance() {
+    if self.exercises!.remaining > 0 {
+      (self.aLabel.text!, self.bLabel.text!, self.signLabel.text!,
+       self.answer) = self.exercises!.next()!
+    } else {
+      NSLog("TBD: FINISH")
+    }
+    self.renderState()
+    self.answerField.becomeFirstResponder()
+  }
+
+  func renderState() {
+    (self.correctsLabel.text, self.incorrectsLabel.text,
+     self.answerField.text) = ("\(self.correct) rätt",
+                               "\(self.incorrect) fel",
+                               "")
   }
 
   override func didReceiveMemoryWarning() {
