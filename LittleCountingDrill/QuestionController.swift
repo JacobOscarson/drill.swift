@@ -91,9 +91,20 @@ class QuestionController: UIViewController {
     self.performSegue(withIdentifier: "correctSegue", sender: nil)
   }
 
+  override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    if(segue.identifier == "incorrectSegue") {
+      let wrongCtrl = (segue.destination as! IncorrectController)
+      let (a, sign, b) = (self.aLabel.text!,
+                          self.signLabel.text!,
+                          self.bLabel.text!)
+      wrongCtrl.expression = "\(a) \(sign) \(b) = "
+      wrongCtrl.answer = String(self.answer)
+    }
+  }
+
   func wasIncorrect() {
     self.incorrect += 1
-    NSLog("TBD: ACT ON INCORRECT")
+    self.performSegue(withIdentifier: "incorrectSegue", sender: nil)
   }
 
   override func didReceiveMemoryWarning() {

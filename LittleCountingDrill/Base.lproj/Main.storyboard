@@ -167,6 +167,7 @@
                         <outlet property="incorrectsLabel" destination="7ob-3C-YW1" id="7ii-fP-i6q"/>
                         <outlet property="signLabel" destination="fqy-EE-w7V" id="DMq-Ll-yUS"/>
                         <segue destination="143-nh-qYT" kind="show" identifier="correctSegue" id="VYb-yr-G1e"/>
+                        <segue destination="jp6-N9-rsH" kind="show" identifier="incorrectSegue" id="6RH-J4-Kkk"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="f2F-kZ-p1g" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -198,7 +199,56 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tus-LA-d0X" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1424.8" y="492.50374812593708"/>
+            <point key="canvasLocation" x="1359" y="238"/>
+        </scene>
+        <!--Incorrect Controller-->
+        <scene sceneID="9jm-GD-Rl8">
+            <objects>
+                <viewController id="jp6-N9-rsH" customClass="IncorrectController" customModule="LittleCountingDrill" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="b3X-vb-PAF"/>
+                        <viewControllerLayoutGuide type="bottom" id="WSx-la-6A5"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="vYX-cw-bmK">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Fel..." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0wA-dI-C0U">
+                                <rect key="frame" x="67" y="152" width="185" height="85"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" weight="black" pointSize="48"/>
+                                <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="10 + 10 = " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rv8-Dz-Yc4">
+                                <rect key="frame" x="67" y="249" width="91" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" weight="black" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="10" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LKi-Nx-Cyt">
+                                <rect key="frame" x="148" y="239" width="65" height="40"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" weight="black" pointSize="31"/>
+                                <color key="textColor" red="0.023529411764705882" green="0.71764705882352942" blue="0.13725490196078433" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="9FQ-ti-HRS">
+                                <rect key="frame" x="193" y="250" width="20" height="20"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </activityIndicatorView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <outlet property="answerLabel" destination="LKi-Nx-Cyt" id="FHa-j8-kZZ"/>
+                        <outlet property="expressionLabel" destination="Rv8-Dz-Yc4" id="8Uh-Ph-3ci"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="LSC-aF-Gpp" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1358" y="893"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Zog-Kc-VU3">
